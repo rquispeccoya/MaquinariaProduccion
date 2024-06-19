@@ -1,5 +1,6 @@
 package com.example.maquinariaproduccion;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private double[] tiempoPosicionamientoValor = {0.2, 0.35, 0.5};
 
     String[] headersTraslado = {"Tramo", "RP%", "RR%", "RT%","Distancia"};
+/*
     String[][] dataTraslado = {
             {"123", "0", "0", "0","0"},
             {"124", "0", "0", "0","0"},
@@ -57,7 +59,11 @@ public class MainActivity extends AppCompatActivity {
             {"124", "0", "0", "0","0"},
             {"125", "0", "0", "0","0"},
             {"45", "0", "0", "0","0"}
-    };
+    };*/
+
+    String[][] dataTraslado = new String[4][5];
+
+    String[][] dataRetorno = new String[4][5];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,6 +113,11 @@ public class MainActivity extends AppCompatActivity {
         binding.editTextTramoBR.setText("10");
         binding.editTextTramoCR.setText("0");
         binding.editTextTramoDR.setText("5");
+
+        binding.editTextTramoA.setText("1000");
+        binding.editTextTramoB.setText("500");
+        binding.editTextTramoC.setText("1200");
+        binding.editTextTramoD.setText("500");
 
         spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -271,11 +282,22 @@ public class MainActivity extends AppCompatActivity {
 
                 }
 
-                FastTableLayout fastTable = new FastTableLayout(getApplicationContext(), binding.myTableLayout, headersTraslado, dataTraslado);
-                fastTable.build();
+                // Crear un Intent para iniciar Activity2
+                Intent intent = new Intent(MainActivity.this, ResultadoActivity.class);
 
-                FastTableLayout fastTableRetorno = new FastTableLayout(getApplicationContext(), binding.myTableLayout, headersTraslado, dataRetorno);
-                fastTableRetorno.build();
+                // Crear un Bundle para pasar datos
+                Bundle bundle = new Bundle();
+
+                bundle.putSerializable("matriz1", dataTraslado);
+                bundle.putSerializable("matriz2", dataRetorno);
+                intent.putExtras(bundle);
+                startActivity(intent);
+
+                //FastTableLayout fastTable = new FastTableLayout(getApplicationContext(), binding.myTableLayout, headersTraslado, dataTraslado);
+                //fastTable.build();
+
+                //FastTableLayout fastTableRetorno = new FastTableLayout(getApplicationContext(), binding.myTableLayout, headersTraslado, dataRetorno);
+                //fastTableRetorno.build();
             }
         });
     }
