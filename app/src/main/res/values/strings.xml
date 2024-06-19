@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">MaquinariaProduccion</string>
+    <string name="tramoa">Tramo a</string>
+    <string name="tramob">Tramo b</string>
+    <string name="tramoc">Tramo c</string>
+    <string name="tramod">Tramo d</string>
+
+    <string name="tramoar">R.Pend. A</string>
+    <string name="tramobr">R.Pend. B</string>
+    <string name="tramocr">R.Pend. C</string>
+    <string name="tramodr">R.Pend. D</string>
+
+    <string name="eficiencia">Eficiencia</string>
+
+</resources>
