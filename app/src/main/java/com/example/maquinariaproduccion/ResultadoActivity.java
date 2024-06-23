@@ -1,9 +1,16 @@
 package com.example.maquinariaproduccion;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.graphics.Point;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.DecelerateInterpolator;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,7 +25,7 @@ import com.example.maquinariaproduccion.databinding.ActivityResultadoBinding;
 import java.text.DecimalFormat;
 
 public class ResultadoActivity extends AppCompatActivity {
-    ActivityResultadoBinding binding;
+      ActivityResultadoBinding binding;
     String[] headersTraslado = {"Tramo", "RP%", "RR%", "RT%", "Distancia"};
     String[] headersTrasladoCompleto = {"Tramo", "RP%", "RR%", "RT%", "D","V.max","V.","T"};
     double [][] factorVelocidadValor ={{0.5,0.7},{0.6,0.75},{0.65,0.80},
@@ -26,6 +33,7 @@ public class ResultadoActivity extends AppCompatActivity {
 
     double tiempoTrasladoTotal=0;
     double tiempoRetornoTotal=0;
+    double tiempoCarga,tiempoDescarga,tiempoPosicionamiento,eficiencia,colmada,densidad;
     DecimalFormat formato = new DecimalFormat("#.##");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +50,15 @@ public class ResultadoActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
 
+
         if (bundle != null && bundle.containsKey("matriz1")) {
+
+            tiempoCarga= bundle.getDouble("tiempoCarga");
+            tiempoDescarga=bundle.getDouble("tiempoDescarga");
+            tiempoPosicionamiento=bundle.getDouble("tiempoPosicionamiento");
+            eficiencia=bundle.getDouble("eficiencia");
+            colmada=bundle.getDouble("colmada");
+            densidad=bundle.getDouble("densidad");
             matriz1Recibida = (String[][]) bundle.getSerializable("matriz1");
             matriz2Recibida = (String[][]) bundle.getSerializable("matriz2");
 
@@ -150,14 +166,28 @@ public class ResultadoActivity extends AppCompatActivity {
                 Log.d("ROYER", "Elemento "+tiempoTrasladoTotal+"   "+tiempoRetornoTotal);
 
                 FastTableLayout fastTable = new FastTableLayout(getApplicationContext(), binding.myTableLayoutResultadoTrasladoFinal, headersTrasladoCompleto, dataTraslado);
+                fastTable.setSET_DEAFULT_HEADER_BORDER(true);
+                fastTable.setSET_DEFAULT_HEADER_BACKGROUND(true);
+                fastTable.setTABLE_TEXT_SIZE(15);
                 fastTable.build();
 
                 FastTableLayout fastTableRetorno = new FastTableLayout(getApplicationContext(), binding.myTableLayoutResultadoRetornoFinal, headersTrasladoCompleto, dataRetorno);
+                fastTableRetorno.setSET_DEAFULT_HEADER_BORDER(true);
+                fastTableRetorno.setSET_DEFAULT_HEADER_BACKGROUND(true);
+                fastTableRetorno.setTABLE_TEXT_SIZE(15);
                 fastTableRetorno.build();
 
+                double tiempoCicloCamion= tiempoCarga+tiempoDescarga+tiempoPosicionamiento+tiempoTrasladoTotal+tiempoRetornoTotal;
+                binding.textViewTiempoTrasladoTotal.setText("Tiempo Traslado Total  Tt: "+formato.format(tiempoTrasladoTotal));
+                binding.textViewTiempoRetornoTotal.setText("Tiempo Retorno Total  Tr: "+formato.format(tiempoRetornoTotal));
+                binding.textViewTiempoCicloCamion.setText("Tiempo Ciclo Camion  Cm: "+formato.format(tiempoCicloCamion));
+                binding.textViewProduccionHoraria.setText("Produccion Horaria  Q: "+formato.format(colmada*eficiencia*60*densidad/tiempoCicloCamion));
             }
         });
 
-
+// Establecer la imagen basada en el número aleatorio generado
+       // int drawableResourceId = getResources().getIdentifier("image" + randomNumber, "drawable", getPackageName());
+        //imageView.setImageResource(drawableResourceId);
     }
+
 }

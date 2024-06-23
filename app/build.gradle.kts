@@ -40,6 +40,7 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.gridlayout)
     implementation(libs.fasttablelayout)
+    implementation(libs.mikeortiz.touchimageview)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

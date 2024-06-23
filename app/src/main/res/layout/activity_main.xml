@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="PRODUCTIVIDAD"
+            android:text="PRODUCTIVIDAD CAMION MINERO"
             android:textSize="30dp" />
 
         <Spinner
@@ -46,7 +46,7 @@
                 android:id="@+id/editTextEficiencia"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number" />
+                android:inputType="numberDecimal" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -55,28 +55,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textFieldSumatoriaFactor"
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonSumatoriaFactor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Sumatoria Factor"
-            app:boxStrokeWidth="2dp"
-            app:endIconMode="clear_text"
-            app:hintAnimationEnabled="true">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextSumatoriaFactor"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal" />
-
-        </com.google.android.material.textfield.TextInputLayout>
+            android:text="Factor Externo"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textFieldCapacidadCucharon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Capacidad Cucharon"
+            android:hint="q -Capacidad Cucharon"
             app:boxStrokeWidth="2dp"
             app:endIconMode="clear_text"
             app:hintAnimationEnabled="true">
@@ -89,39 +80,18 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textFieldFactorLlenado"
+
+
+        <Spinner
+            android:id="@+id/spinnerPesoMateriales"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="K Factor de llenado"
-            app:boxStrokeWidth="2dp"
-            app:endIconMode="clear_text"
-            app:hintAnimationEnabled="true">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextFactorLlenado"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textFieldDensidad"
+            android:layout_height="wrap_content" />
+        <Spinner
+            android:id="@+id/spinnerPesoMaterialesOpcion"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Densidad"
-            app:boxStrokeWidth="2dp"
-            app:endIconMode="clear_text"
-            app:hintAnimationEnabled="true">
+            android:layout_height="wrap_content" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextDensidad"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal" />
 
-        </com.google.android.material.textfield.TextInputLayout>
 
 
         <Spinner

@@ -5,25 +5,51 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context=".ResultadoActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="center_horizontal"
-        android:paddingVertical="20dp"
-        android:paddingHorizontal="10dp"
         android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:orientation="vertical"
+
+        android:layout_marginHorizontal="10dp">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:text="Calculando Velocidad de Traslado"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="horizontal">
 
+            <com.ortiz.touchview.TouchImageView
+                android:id="@+id/imageView"
+                android:layout_width="100dp"
+                android:layout_height="200dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:layout_marginEnd="5dp"
+                android:src="@drawable/ic_793fsuma" />
 
+            <com.ortiz.touchview.TouchImageView
+                android:id="@+id/imageView2"
+                android:layout_width="100dp"
+                android:layout_height="200dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:layout_marginStart="5dp"
+                android:src="@drawable/ic_793fsuma" />
 
         </LinearLayout>
+
 
         <HorizontalScrollView
             android:id="@+id/horizontalScrollViewResultadoTraslado"
@@ -33,7 +59,8 @@
             <TableLayout
                 android:id="@+id/myTableLayoutResultadoTraslado"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"/>
 
         </HorizontalScrollView>
 
@@ -45,9 +72,9 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textFieldTramoA"
                 android:layout_width="0dp"
-                android:layout_weight="2"
                 android:layout_height="wrap_content"
-                android:hint="@string/tramoa"
+                android:layout_weight="2"
+                android:hint="Vel. A"
                 app:boxStrokeWidth="2dp"
                 app:endIconMode="clear_text"
                 app:expandedHintEnabled="false"
@@ -63,9 +90,9 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textFieldTramoB"
                 android:layout_width="0dp"
-                android:layout_weight="2"
                 android:layout_height="wrap_content"
-                android:hint="@string/tramob"
+                android:layout_weight="2"
+                android:hint="Vel. B"
                 app:boxStrokeWidth="2dp"
                 app:endIconMode="clear_text"
                 app:expandedHintEnabled="false"
@@ -81,9 +108,9 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textFieldTramoC"
                 android:layout_width="0dp"
-                android:layout_weight="2"
                 android:layout_height="wrap_content"
-                android:hint="@string/tramoc"
+                android:layout_weight="2"
+                android:hint="Vel. C"
                 app:boxStrokeWidth="2dp"
                 app:endIconMode="clear_text"
                 app:expandedHintEnabled="false"
@@ -99,9 +126,9 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textFieldTramoD"
                 android:layout_width="0dp"
-                android:layout_weight="2"
                 android:layout_height="wrap_content"
-                android:hint="@string/tramod"
+                android:layout_weight="2"
+                android:hint="Vel. D"
                 app:boxStrokeWidth="2dp"
                 app:endIconMode="clear_text"
                 app:expandedHintEnabled="false"
@@ -116,6 +143,38 @@
 
         </LinearLayout>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Calculando Velocidad de Retorno"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <com.ortiz.touchview.TouchImageView
+                android:id="@+id/imageView3"
+                android:layout_width="100dp"
+                android:layout_height="200dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:layout_marginEnd="5dp"
+                android:src="@drawable/ic_793fsuma" />
+
+            <com.ortiz.touchview.TouchImageView
+                android:id="@+id/imageView4"
+                android:layout_width="100dp"
+                android:layout_height="200dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:layout_marginStart="5dp"
+                android:src="@drawable/ic_793fsuma" />
+
+        </LinearLayout>
+
 
 
         <HorizontalScrollView
@@ -126,7 +185,8 @@
             <TableLayout
                 android:id="@+id/myTableLayoutResultadoRetorno"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"/>
 
         </HorizontalScrollView>
 
@@ -138,8 +198,8 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="0dp"
-                android:layout_weight="2"
                 android:layout_height="wrap_content"
+                android:layout_weight="2"
                 android:hint="@string/tramoa"
                 app:boxStrokeWidth="2dp"
                 app:endIconMode="clear_text"
@@ -155,8 +215,8 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="0dp"
-                android:layout_weight="2"
                 android:layout_height="wrap_content"
+                android:layout_weight="2"
                 android:hint="@string/tramob"
                 app:boxStrokeWidth="2dp"
                 app:endIconMode="clear_text"
@@ -172,8 +232,8 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="0dp"
-                android:layout_weight="2"
                 android:layout_height="wrap_content"
+                android:layout_weight="2"
                 android:hint="@string/tramoc"
                 app:boxStrokeWidth="2dp"
                 app:endIconMode="clear_text"
@@ -189,8 +249,8 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="0dp"
-                android:layout_weight="2"
                 android:layout_height="wrap_content"
+                android:layout_weight="2"
                 android:hint="@string/tramod"
                 app:boxStrokeWidth="2dp"
                 app:endIconMode="clear_text"
@@ -210,7 +270,7 @@
             android:id="@+id/buttonCalcularFinal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Calcular"/>
+            android:text="Calcular" />
 
 
         <HorizontalScrollView
@@ -221,7 +281,8 @@
             <TableLayout
                 android:id="@+id/myTableLayoutResultadoTrasladoFinal"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"/>
 
         </HorizontalScrollView>
 
@@ -233,9 +294,31 @@
             <TableLayout
                 android:id="@+id/myTableLayoutResultadoRetornoFinal"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"/>
 
         </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/textViewTiempoTrasladoTotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/textViewTiempoRetornoTotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/textViewTiempoCicloCamion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"/>
+
+        <TextView
+            android:id="@+id/textViewProduccionHoraria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"/>
 
     </LinearLayout>
 
