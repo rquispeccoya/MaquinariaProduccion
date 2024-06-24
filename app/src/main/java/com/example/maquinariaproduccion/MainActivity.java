@@ -1,6 +1,7 @@
 package com.example.maquinariaproduccion;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -17,6 +18,7 @@ import android.widget.LinearLayout;
 
 import android.widget.Spinner;
 import android.widget.Toast;
+
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -39,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
     int pos;
     private Spinner[] spinnersSentido = new Spinner[4];
     private Spinner[] spinnersTipoSuelo = new Spinner[4];
+    private Spinner spinnerTipoMaquina, spinnerTamanoCucharon, spinnerTipoCucharon,spinnerRendimiento;
+    private ArrayAdapter<String> adapterTipoMaquina, adapterTamanoCucharon, adapterTipoCucharon,adapterRendimiento;
+
     private String[] labelTabla = {"Tramo", "RP%", "RR%", "RT%", "V. max", "v=f.max.50/3", "Distancia", "T.total"};
     private String[] resistenciaRodadura = {"Concreto", "Tierra compactada con Mantenimiento", "Tierra sin mantenimiento"};
     private int[][] resistenciaRodaduraValor = {{18, 23}, {35, 35}, {110, 110}};
@@ -81,13 +86,24 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
+        //MAQUINARIA
         spinner1 = findViewById(R.id.spinnerMaquinaria);
         spinner2 = findViewById(R.id.spinnerTipo);
         spinnerTiempoCicloBase = findViewById(R.id.spinnerTiempoCicloBase);
+
+        //CAPACIDAD CUCHARON ************************
+        // Inicializar spinners
+        spinnerTipoMaquina = findViewById(R.id.spinnerTipoMaquina);
+        spinnerTamanoCucharon = findViewById(R.id.spinnerTamanoCucharon);
+        spinnerTipoCucharon = findViewById(R.id.spinnerTipoCucharon);
+        spinnerRendimiento = findViewById(R.id.spinnerRendimiento);
+
+        //TIEMPO DESCARGA Y POSICIONAMIENTO************
         spinnerTiempoDescarga = findViewById(R.id.spinnerTiempoDescarga);
         spinnerTiempoPosicionamiento = findViewById(R.id.spinnerTiempoPosicionamiento);
 
+        //SUMATORIA FACTOR EXTERNO*********************
+        //Inicializar spinner modal-check
         spinnerPesoMaterial = findViewById(R.id.spinnerPesoMateriales);
         spinnerPesoMaterialOpcion = findViewById(R.id.spinnerPesoMaterialesOpcion);
 
@@ -120,6 +136,23 @@ public class MainActivity extends AppCompatActivity {
         adapterTiempoPosicionamiento.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerPesoMaterialOpcion.setAdapter(adapterPesoMaterialOpcion);
 
+        // Inicializar adapters capacidad cucharon
+        adapterTipoMaquina = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Data.tipomaquina);
+        adapterTipoMaquina.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerTipoMaquina.setAdapter(adapterTipoMaquina);
+
+        adapterTamanoCucharon = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item);
+        adapterTamanoCucharon.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerTamanoCucharon.setAdapter(adapterTamanoCucharon);
+
+        adapterTipoCucharon = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item);
+        adapterTipoCucharon.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerTipoCucharon.setAdapter(adapterTipoCucharon);
+
+        adapterRendimiento = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item,Data.rendimiento);
+        adapterRendimiento.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerRendimiento.setAdapter(adapterRendimiento);
+
 
         binding.editTextTramoAR.setText("0");
         binding.editTextTramoBR.setText("10");
@@ -133,20 +166,22 @@ public class MainActivity extends AppCompatActivity {
 
 
         selectCamion();
-
+        selectCapacidadCucharon();
 
         LinearLayout containerSpinners = findViewById(R.id.container_spinner1);
+        Drawable styleSpinner = getResources().getDrawable(R.drawable.style_spinner_1);
 
         // Configurar cada Spinner en el arreglo
         for (int i = 0; i < spinnersSentido.length; i++) {
             spinnersSentido[i] = new Spinner(this);
             spinnersSentido[i].setId(i + 1); // Asignar ID dinámicamente
+            spinnersSentido[i].setBackground(styleSpinner);
 
             ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, resistenciaPendiente);
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spinnersSentido[i].setAdapter(adapter);
 
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, 0, 1.0f);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0, 1.0f);
             params.gravity = Gravity.CENTER_VERTICAL; // Centrar horizontalmente dentro del LinearLayout
             spinnersSentido[i].setLayoutParams(params);
             containerSpinners.addView(spinnersSentido[i]);
@@ -160,12 +195,13 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < spinnersTipoSuelo.length; i++) {
             spinnersTipoSuelo[i] = new Spinner(this);
             spinnersTipoSuelo[i].setId(i + 1); // Asignar ID dinámicamente
+            spinnersTipoSuelo[i].setBackground(styleSpinner);
 
             ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, resistenciaRodadura);
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spinnersTipoSuelo[i].setAdapter(adapter);
 
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, 0, 1.0f);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0, 1.0f);
             params.gravity = Gravity.CENTER_VERTICAL; // Centrar horizontalmente dentro del LinearLayout
             spinnersTipoSuelo[i].setLayoutParams(params);
             containerSpinners2.addView(spinnersTipoSuelo[i]);
@@ -204,13 +240,21 @@ public class MainActivity extends AppCompatActivity {
                 //Log.d("ROYER", "Elemento   "+ (11+sumatoriaFactor));
                 Toast.makeText(MainActivity.this, "CMD " +spinnerPesoMaterial.getSelectedItemPosition(), Toast.LENGTH_SHORT).show();
 
-                int n = (int) Math.round(colmada / (Double.parseDouble(binding.editTextCapacidadCucharon.getText().toString())* Data.pesoMaterialValor[spinnerPesoMaterial.getSelectedItemPosition()][2] ));
+                double capacidadCucharon=Data.capacidadNominal[spinnerTipoMaquina.getSelectedItemPosition()][spinnerTamanoCucharon.getSelectedItemPosition()][spinnerTipoCucharon.getSelectedItemPosition()][spinnerRendimiento.getSelectedItemPosition()];
+                double pesomaterial=Data.pesoMaterialValor[spinnerPesoMaterial.getSelectedItemPosition()][2];
+                int n = (int) Math.round(colmada / (capacidadCucharon*pesomaterial));
                 double cms = tiempoCicloBaseValor[spinnerTiempoCicloBase.getSelectedItemPosition()] + sumatoriaFactor;
                 float tiempoCarga = (float) (n * cms);
                 double tiempoDescarga = tiempoDescargaValor[spinnerTiempoDescarga.getSelectedItemPosition()];
                 double tiempoPosicionamiento = tiempoPosicionamientoValor[spinnerTiempoPosicionamiento.getSelectedItemPosition()];
 
                 //Toast.makeText(MainActivity.this, "CMD " +tiempoPosicionamiento+" \n   "+cms, Toast.LENGTH_SHORT).show();
+                Log.d("ROYER", "cap cuchar "+capacidadCucharon+"\n"+
+                        "n "+n+"\n"+
+                        "colmada "+colmada+"\n"+
+                        "pes mate "+pesomaterial+"\n"+
+                        "cms "+cms+"\n"+
+                        "tiempo carga "+tiempoCarga);
 
 
                 //TABLA PRUEBAS
@@ -326,6 +370,32 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void  selectCapacidadCucharon(){
+        //CAPACIDAD CUCHARON *************************************
+        // Listener para spinner1
+        spinnerTipoMaquina.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                //Toast.makeText(MainActivity.this, "QUESO : " + position, Toast.LENGTH_SHORT).show();
+                updateSpinnerTamanoCucharon(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+        // Listener para spinner2
+        spinnerTamanoCucharon.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                updateSpinnerTipoCucharon(spinnerTipoMaquina.getSelectedItemPosition(), position);
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+    }
 
     private void openModal() {
         // Crear el cuadro de diálogo
@@ -382,5 +452,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    // Método para actualizar datos de spinner2 basados en spinner1
+    private void updateSpinnerTamanoCucharon(int position) {
+        adapterTamanoCucharon.clear();
+        adapterTamanoCucharon.addAll(Data.tamanoCucharon[position]);
+        adapterTamanoCucharon.notifyDataSetChanged();
+        spinnerTamanoCucharon.setSelection(0);  // Resetear selección
+        updateSpinnerTipoCucharon(position, 0);
+    }
+
+    // Método para actualizar datos de spinner3 basados en spinner1 y spinner2
+    private void updateSpinnerTipoCucharon(int spinner1Position, int spinner2Position) {
+        adapterTipoCucharon.clear();
+        adapterTipoCucharon.addAll(Data.tipoCucharon[spinner1Position][spinner2Position]);
+        adapterTipoCucharon.notifyDataSetChanged();
+        spinnerTipoCucharon.setSelection(0);  // Resetear selección
     }
 }

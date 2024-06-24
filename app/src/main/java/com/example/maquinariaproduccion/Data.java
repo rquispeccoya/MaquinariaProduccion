@@ -17,23 +17,23 @@ public class Data {
 
     static final double[] factorExternoValor={-0.05,0.02,0.02,-0.02,0,0.03,0.04,0,0.01,0.02,-0.04,0.04,-0.04,0.04,0.04f,0.05};
 
-    static final  String[] spinner1Data = {"994F"};
-    static final  String[][] spinner2Data = {{"Cucharon de 5.650mm", "Cucharon de 6.220mm"}};
-    static final  String[][][] spinner3Data = {
+    static final String[] tipomaquina = {"994F"};
+    static final String[][] tamanoCucharon = {{"Cucharon de 5.650mm", "Cucharon de 6.220mm"}};
+    static final String[][][] tipoCucharon = {
             {
                     {"Cucharon en V para rocas con dientes y segmentos"},
                     {"Cucharon en V para rocas con dientes y segmentos", "Cucharon para carbon con borde recto"}
 
             }
     };
-    static final  double[][][][] capacidadNominal = {
+    static final double[][][][] capacidadNominal = {
             {
                     {{19,15,5.640,5.556,2.266,5.206,108,16.894,10.911,25.484,128.499,111.091,989,193.779}},
                     {{19,15,6.2,5.563,2.278,5.21,108,16.898,10.636,26.004,126.522,109.241,995,194.729},
                             {31,27,6.2,5.635,2.306,5.179,63,16.830,11.845,26.146,129.295,111.719,974,195.169}}
             }
     };
-    static final  String[] spinner4Data ={"Capacidad nominal del cucharón (§)",
+    static final String[] rendimiento ={"Capacidad nominal del cucharón (§)",
             "Capacidad a ras (§)",
             "Ancho del cucharón (§)",
             "Espacio libre de descarga en descargas de levantamiento completo y de 45° (§)",

@@ -5,11 +5,11 @@
     <string name="tramoc">Tramo c</string>
     <string name="tramod">Tramo d</string>
 
-    <string name="tramoar">R.Pend. A</string>
-    <string name="tramobr">R.Pend. B</string>
-    <string name="tramocr">R.Pend. C</string>
-    <string name="tramodr">R.Pend. D</string>
+    <string name="tramoar">Pend. A</string>
+    <string name="tramobr">Pend. B</string>
+    <string name="tramocr">Pend. C</string>
+    <string name="tramodr">Pend. D</string>
 
-    <string name="eficiencia">Eficiencia</string>
+    <string name="eficiencia">E - Eficiencia</string>
 
 </resources>
