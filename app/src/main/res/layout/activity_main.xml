@@ -180,6 +180,7 @@
                     android:id="@+id/spinnerTipoCucharon"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:paddingRight="40dp"
                     android:background="@drawable/style_spinner_1" />
 
                 <com.google.android.material.textview.MaterialTextView
@@ -337,7 +338,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="3"
                         android:gravity="center"
-                        android:text="Resistencia Rodadura"
+                        android:text="Resistencia a la Rodadura"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -359,7 +360,6 @@
                             android:layout_height="wrap_content"
                             android:hint="@string/tramoa"
                             app:boxStrokeWidth="2dp"
-                            app:endIconMode="clear_text"
                             app:expandedHintEnabled="false"
                             app:hintAnimationEnabled="true">
 
@@ -393,7 +393,6 @@
                             android:layout_height="wrap_content"
                             android:hint="@string/tramoc"
                             app:boxStrokeWidth="2dp"
-                            app:endIconMode="clear_text"
                             app:expandedHintEnabled="false"
                             app:hintAnimationEnabled="true">
 
@@ -410,7 +409,6 @@
                             android:layout_height="wrap_content"
                             android:hint="@string/tramod"
                             app:boxStrokeWidth="2dp"
-                            app:endIconMode="clear_text"
                             app:expandedHintEnabled="false"
                             app:hintAnimationEnabled="true">
 
@@ -436,7 +434,6 @@
                             android:layout_height="wrap_content"
                             android:hint="@string/tramoar"
                             app:boxStrokeWidth="2dp"
-                            app:endIconMode="clear_text"
                             app:expandedHintEnabled="false"
                             app:hintAnimationEnabled="true">
 
@@ -453,7 +450,6 @@
                             android:layout_height="wrap_content"
                             android:hint="@string/tramobr"
                             app:boxStrokeWidth="2dp"
-                            app:endIconMode="clear_text"
                             app:expandedHintEnabled="false"
                             app:hintAnimationEnabled="true">
 
@@ -470,7 +466,6 @@
                             android:layout_height="wrap_content"
                             android:hint="@string/tramocr"
                             app:boxStrokeWidth="2dp"
-                            app:endIconMode="clear_text"
                             app:expandedHintEnabled="false"
                             app:hintAnimationEnabled="true">
 
@@ -487,7 +482,6 @@
                             android:layout_height="wrap_content"
                             android:hint="@string/tramodr"
                             app:boxStrokeWidth="2dp"
-                            app:endIconMode="clear_text"
                             app:expandedHintEnabled="false"
                             app:hintAnimationEnabled="true">
 
