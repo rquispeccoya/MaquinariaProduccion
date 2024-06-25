@@ -15,473 +15,166 @@
         android:layout_gravity="center_horizontal"
         android:gravity="center_horizontal"
         android:orientation="vertical">
-
-        <com.google.android.material.card.MaterialCardView
+        <com.google.android.material.textview.MaterialTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:padding="10dp"
-            app:cardCornerRadius="10dp"
-            app:strokeColor="#757373"
-            app:strokeWidth="1dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Velocidad Maxima por tramos - Traslado"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Grafica Suma" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Grafica Resta" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:orientation="horizontal">
-
-                    <com.ortiz.touchview.TouchImageView
-                        android:id="@+id/imageView"
-                        android:layout_width="0dp"
-                        android:layout_height="150dp"
-                        android:layout_marginEnd="5dp"
-                        android:layout_weight="1"
-                        android:adjustViewBounds="true"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/ic_793fsuma" />
-
-                    <com.ortiz.touchview.TouchImageView
-                        android:id="@+id/imageView2"
-                        android:layout_width="0dp"
-                        android:layout_height="150dp"
-                        android:layout_marginStart="5dp"
-                        android:layout_weight="1"
-                        android:adjustViewBounds="true"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/ic_793fsuma" />
-
-                </LinearLayout>
-
-                <HorizontalScrollView
-                    android:id="@+id/horizontalScrollViewResultadoTraslado"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TableLayout
-                        android:id="@+id/myTableLayoutResultadoTraslado"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginVertical="10dp" />
-
-                </HorizontalScrollView>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textFieldTramoA"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:hint="Vel. A"
-                        app:boxStrokeWidth="2dp"
-                        app:expandedHintEnabled="false"
-                        app:hintAnimationEnabled="true">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/editTextVelocidadATraslado"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="numberDecimal" />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textFieldTramoB"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:hint="Vel. B"
-                        app:boxStrokeWidth="2dp"
-                        app:expandedHintEnabled="false"
-                        app:hintAnimationEnabled="true">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/editTextVelocidadBTraslado"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="numberDecimal" />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textFieldTramoC"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:hint="Vel. C"
-                        app:boxStrokeWidth="2dp"
-                        app:expandedHintEnabled="false"
-                        app:hintAnimationEnabled="true">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/editTextVelocidadCTraslado"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="numberDecimal" />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textFieldTramoD"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:hint="Vel. D"
-                        app:boxStrokeWidth="2dp"
-                        app:expandedHintEnabled="false"
-                        app:hintAnimationEnabled="true">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/editTextVelocidadDTraslado"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="numberDecimal" />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                </LinearLayout>
-
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:padding="10dp"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="5dp"
-            app:cardUseCompatPadding="true"
-            app:strokeColor="#757373"
-            app:strokeWidth="1dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Velocidad Maxima por tramos - Retorno"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Grafica Suma" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Grafica Resta" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:orientation="horizontal">
-
-                    <com.ortiz.touchview.TouchImageView
-                        android:id="@+id/imageView3"
-                        android:layout_width="0dp"
-                        android:layout_height="150dp"
-                        android:layout_marginEnd="5dp"
-                        android:layout_weight="1"
-                        android:adjustViewBounds="true"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/ic_793fsuma" />
-
-                    <com.ortiz.touchview.TouchImageView
-                        android:id="@+id/imageView4"
-                        android:layout_width="0dp"
-                        android:layout_height="150dp"
-                        android:layout_marginStart="5dp"
-                        android:layout_weight="1"
-                        android:adjustViewBounds="true"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/ic_793fsuma" />
-
-                </LinearLayout>
-
-                <HorizontalScrollView
-                    android:id="@+id/horizontalScrollViewResultadoRetorno"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <TableLayout
-                        android:id="@+id/myTableLayoutResultadoRetorno"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginVertical="10dp" />
-                </HorizontalScrollView>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:hint="Vel. D"
-                        app:boxStrokeWidth="2dp"
-                        app:expandedHintEnabled="false"
-                        app:hintAnimationEnabled="true">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/editTextVelocidadARetorno"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="numberDecimal" />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:hint="Vel. C"
-                        app:boxStrokeWidth="2dp"
-                        app:expandedHintEnabled="false"
-                        app:hintAnimationEnabled="true">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/editTextVelocidadBRetorno"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="numberDecimal" />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:hint="Vel. B"
-                        app:boxStrokeWidth="2dp"
-                        app:expandedHintEnabled="false"
-                        app:hintAnimationEnabled="true">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/editTextVelocidadCRetorno"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="numberDecimal" />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:hint="Vel. A"
-                        app:boxStrokeWidth="2dp"
-                        app:expandedHintEnabled="false"
-                        app:hintAnimationEnabled="true">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/editTextVelocidadDRetorno"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="numberDecimal" />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/buttonCalcularFinal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Calcular" />
-
-
-        <LinearLayout
-            android:id="@+id/resultadoLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
             android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:visibility="visible">
+            android:layout_marginBottom="30dp"
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:text="RESULTADOS"/>
 
-            <com.google.android.material.card.MaterialCardView
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:padding="10dp"
+            app:cardCornerRadius="10dp"
+            app:strokeColor="#757373"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:padding="10dp"
-                app:cardCornerRadius="10dp"
-                app:strokeColor="#757373"
-                app:strokeWidth="1dp">
+                android:layout_margin="10dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical">
+                    android:text="Recorrido del Camion"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Recorrido del Camion"
-                        android:textStyle="bold" />
-
-                    <com.example.maquinariaproduccion.DrawingView
-                        android:id="@+id/drawing_view"
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:background="@android:color/white"/>
+                <com.example.maquinariaproduccion.DrawingView
+                    android:id="@+id/drawing_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:background="@android:color/white" />
 
 
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
 
-            <com.google.android.material.card.MaterialCardView
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:padding="10dp"
+            app:cardCornerRadius="10dp"
+            app:strokeColor="#757373"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:padding="10dp"
-                app:cardCornerRadius="10dp"
-                app:strokeColor="#757373"
-                app:strokeWidth="1dp">
+                android:layout_margin="10dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical">
+                    android:text="Tabla - Tiempo de Traslado"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Tabla - Tiempo de Traslado"
-                        android:textStyle="bold" />
+                <HorizontalScrollView
+                    android:id="@+id/horizontalScrollViewResultadoTrasladoFinal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
-                    <HorizontalScrollView
-                        android:id="@+id/horizontalScrollViewResultadoTrasladoFinal"
+                    <TableLayout
+                        android:id="@+id/myTableLayoutResultadoTrasladoFinal"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="10dp" />
 
-                        <TableLayout
-                            android:id="@+id/myTableLayoutResultadoTrasladoFinal"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginVertical="10dp" />
+                </HorizontalScrollView>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-                    </HorizontalScrollView>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:padding="10dp"
+            app:cardCornerRadius="10dp"
+            app:strokeColor="#757373"
+            app:strokeWidth="1dp">
 
-            <com.google.android.material.card.MaterialCardView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:padding="10dp"
-                app:cardCornerRadius="10dp"
-                app:strokeColor="#757373"
-                app:strokeWidth="1dp">
+                android:layout_margin="10dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:gravity="center_horizontal"
-                    android:orientation="vertical">
+                    android:text="Tabla - Tiempo de Retorno"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Tabla - Tiempo de Retorno"
-                        android:textStyle="bold" />
+                <HorizontalScrollView
+                    android:id="@+id/horizontalScrollViewResultadoRetornoFinal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
-                    <HorizontalScrollView
-                        android:id="@+id/horizontalScrollViewResultadoRetornoFinal"
+                    <TableLayout
+                        android:id="@+id/myTableLayoutResultadoRetornoFinal"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="10dp" />
 
-                        <TableLayout
-                            android:id="@+id/myTableLayoutResultadoRetornoFinal"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginVertical="10dp" />
+                </HorizontalScrollView>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-                    </HorizontalScrollView>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
 
-            <TextView
-                android:id="@+id/textViewTiempoTrasladoTotal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:padding="10dp"
+            app:cardCornerRadius="10dp"
+            app:strokeColor="#757373"
+            app:strokeWidth="1dp">
 
-            <TextView
-                android:id="@+id/textViewTiempoRetornoTotal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/textViewTiempoCicloCamion"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp" />
+                android:layout_margin="10dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textViewProduccionHoraria"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp" />
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/textViewTiempoTrasladoTotal"
+                    android:textSize="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/textViewTiempoRetornoTotal"
+                    android:textSize="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/textViewTiempoCicloCamion"
+                    android:textSize="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp" />
+
+                <TextView
+                    android:id="@+id/textViewProduccionHoraria"
+                    android:textSize="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 
 </ScrollView>

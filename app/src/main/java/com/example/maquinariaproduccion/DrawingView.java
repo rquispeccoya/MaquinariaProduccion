@@ -60,7 +60,6 @@ public class DrawingView extends View {
         int startX = 0;
         int startY = getHeight()-30 ;
         int sizeLines = getWidth()/line.size();
-        Toast.makeText(context, "Linea "+sizeLines,Toast.LENGTH_SHORT).show();
         path.moveTo(startX, startY);
         Random rnd = new Random();
         //int color= Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));

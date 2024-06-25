@@ -5,14 +5,11 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.gridlayout.widget.GridLayout;
 
 import android.widget.LinearLayout;
 
@@ -20,21 +17,14 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import com.alclabs.fasttablelayout.FastTableLayout;
 import com.example.maquinariaproduccion.databinding.ActivityMainBinding;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.checkbox.MaterialCheckBox;
-import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
@@ -112,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
     //double colmada = 176;
     double colmada;
+    int nombreMaquinaria;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -186,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
         adapterRendimiento.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerRendimiento.setAdapter(adapterRendimiento);
 
-
+/*
         binding.editTextTramoAR.setText("0");
         binding.editTextTramoBR.setText("10");
         binding.editTextTramoCR.setText("0");
@@ -196,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
         binding.editTextTramoB.setText("500");
         binding.editTextTramoC.setText("1200");
         binding.editTextTramoD.setText("500");
-
+*/
 
         selectCamion();
         selectCapacidadCucharon();
@@ -267,7 +258,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (binding.editTextEficiencia.getText().length() > 0) {
+                if (binding.editTextEficiencia.getText().length() > 0&&
+                        binding.editTextTramoA.getText().length()>0&&binding.editTextTramoB.getText().length()>0&&
+                        binding.editTextTramoC.getText().length()>0&&binding.editTextTramoD.getText().length()>0&&
+                        binding.editTextTramoAR.getText().length()>0&&binding.editTextTramoBR.getText().length()>0&&
+                        binding.editTextTramoCR.getText().length()>0&&binding.editTextTramoDR.getText().length()>0) {
 
                     float sumatoriaFactor = 0;
                     for (int i = 0; i < checks.length; i++) {
@@ -343,13 +338,13 @@ public class MainActivity extends AppCompatActivity {
                     eficiencia = Double.parseDouble(binding.editTextEficiencia.getText().toString());
                     if(eficiencia>=1)
                         eficiencia=eficiencia/100;
-                    Toast.makeText(MainActivity.this, "Ingrese "+ eficiencia, Toast.LENGTH_SHORT).show();
 
                     densidad = Data.pesoMaterialValor[spinnerPesoMaterial.getSelectedItemPosition()][spinnerPesoMaterialOpcion.getSelectedItemPosition()];
 
+                    nombreMaquinaria = spinnerModeloMaquinaria.getSelectedItemPosition();
 
                     // Crear un Intent para iniciar Activity2
-                    Intent intent = new Intent(MainActivity.this, ResultadoActivity.class);
+                    Intent intent = new Intent(MainActivity.this, VelocidadMaximaActivity.class);
 
                     // Crear un Bundle para pasar datos
                     Bundle bundle = new Bundle();
@@ -362,6 +357,7 @@ public class MainActivity extends AppCompatActivity {
                     bundle.putDouble("eficiencia", eficiencia);
                     bundle.putDouble("colmada", colmada);
                     bundle.putDouble("densidad", densidad);
+                    bundle.putInt("nombreMaquinaria",nombreMaquinaria);
                     intent.putExtras(bundle);
                     startActivity(intent);
 
@@ -371,7 +367,7 @@ public class MainActivity extends AppCompatActivity {
                     //FastTableLayout fastTableRetorno = new FastTableLayout(getApplicationContext(), binding.myTableLayout, headersTraslado, dataRetorno);
                     //fastTableRetorno.build();
                 } else {
-                    Toast.makeText(MainActivity.this, "Ingrese eficiencia ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Complete los campos vacios", Toast.LENGTH_SHORT).show();
                 }
             }
         });

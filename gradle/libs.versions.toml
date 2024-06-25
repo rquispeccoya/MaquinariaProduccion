@@ -11,6 +11,7 @@ gridlayout = "1.0.0"
 fasttablelayout = "1.0.0"
 touchimageview = "$LAST_VERSION"
 touchimageviewVersion = "1.4.1"
+mpandroidchart = "v3.1.0"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -24,6 +25,7 @@ gridlayout = { group = "androidx.gridlayout", name = "gridlayout", version.ref =
 fasttablelayout = { group = "com.github.alcarazolabs", name = "FastTableLayout", version.ref = "fasttablelayout" }
 touchimageview = { group = "com.github.MikeOrtiz", name = "TouchImageView", version.ref = "touchimageview" }
 mikeortiz-touchimageview = { group = "com.github.MikeOrtiz", name = "TouchImageView", version.ref = "touchimageviewVersion" }
+mpandroidchart = { group = "com.github.PhilJay", name = "MPAndroidChart", version.ref = "mpandroidchart" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

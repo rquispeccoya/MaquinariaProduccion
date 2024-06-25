@@ -228,7 +228,7 @@
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Materiales" />
+                    android:text="Material a cargar" />
 
                 <Spinner
                     android:id="@+id/spinnerPesoMateriales"
@@ -239,7 +239,7 @@
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Caracteristica" />
+                    android:text="Caracteristica del material" />
 
                 <Spinner
                     android:id="@+id/spinnerPesoMaterialesOpcion"
@@ -376,7 +376,6 @@
                             android:layout_height="wrap_content"
                             android:hint="@string/tramob"
                             app:boxStrokeWidth="2dp"
-                            app:endIconMode="clear_text"
                             app:expandedHintEnabled="false"
                             app:hintAnimationEnabled="true">
 

@@ -41,6 +41,7 @@ dependencies {
     implementation(libs.gridlayout)
     implementation(libs.fasttablelayout)
     implementation(libs.mikeortiz.touchimageview)
+    implementation(libs.mpandroidchart)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
